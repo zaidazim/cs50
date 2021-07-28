@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+
+                let correct = document.querySelector(".correct");
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#result1').innerHTML = "Correct!";
+                });
+
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++){
+                    incorrects[i].addEventListener('click', function() {
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#result1').innerHTML = 'Incorrect';
+                    });
+
+                }
+
+                document.querySelector('#check').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value === 'Charles Babbage'){
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#result2').innerHTML = 'Correct!';
+                    } else{
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#result2').innerHTML = 'Inorrect';
+                    }
+                });
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <h3>Which cricket team won the ICC Cricket World Cup in 2015</h3>
+
+                <button class="incorrect">India</button>
+                <button class="incorrect">England</button>
+                <button class="correct">Australia</button>
+                <button class="incorrect">New Zealand</button>
+
+                <p id="result1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Who is known as the Father of Computers?</h3>
+                <input type="text"></input>
+                <button id="check">Check answer</button>
+
+                <p id="result2"></p>
+            </div>
+
+        </div>
+    </body>
+</html>
